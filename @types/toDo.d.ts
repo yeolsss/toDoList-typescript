@@ -1,13 +1,14 @@
 declare enum EIsDone {
-  DONE,
   UN_DONE,
+  DONE,
 }
 
 declare type TToDo = {
-  id: number;
+  id?: number;
   title: string;
   todo: string;
   isDone: EIsDone;
+  createdAt: string;
 };
 
 declare type TToDos = {

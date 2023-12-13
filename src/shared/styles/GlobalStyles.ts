@@ -91,7 +91,9 @@ export const GlobalStyles = styled.createGlobalStyle`
     font: inherit;
     vertical-align: baseline;
   }
+
   /* HTML5 display-role reset for older browsers */
+
   article,
   aside,
   details,
@@ -105,17 +107,21 @@ export const GlobalStyles = styled.createGlobalStyle`
   section {
     display: block;
   }
+
   body {
     line-height: 1;
   }
+
   ol,
   ul {
     list-style: none;
   }
+
   blockquote,
   q {
     quotes: none;
   }
+
   blockquote:before,
   blockquote:after,
   q:before,
@@ -123,6 +129,7 @@ export const GlobalStyles = styled.createGlobalStyle`
     content: '';
     content: none;
   }
+
   table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -131,11 +138,13 @@ export const GlobalStyles = styled.createGlobalStyle`
   input {
     border: unset;
     outline: unset;
+    font-weight: 100;
   }
 
   button {
     border: unset;
     background-color: unset;
+    cursor: pointer;
   }
 
   html {
@@ -146,17 +155,32 @@ export const GlobalStyles = styled.createGlobalStyle`
     --bgColor: ${({ theme }) => theme.bgColor};
     --cardColor: ${({ theme }) => theme.cardColor};
     --textColor: ${({ theme }) => theme.textColor};
-    --boardColor: ${({ theme }) => theme.boardColor};
+    --borderColor: ${({ theme }) => theme.borderColor};
+    --cancelColor: ${({ theme }) => theme.cancelColor};
+    --doneColor: ${({ theme }) => theme.doneColor};
+    --font-family: font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+      sans-serif;
   }
 
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: var(--font-family);
     background-color: var(--bgColor);
+    transition: background-color 0.2s ease-in;
+
     * {
       color: var(--textColor);
       box-sizing: border-box;
+      font-weight: 100;
+      transition:
+        background-color 0.2s ease-in,
+        color 0.2s ease-in;
     }
+  }
+
+  input {
+    font-size: 1.6rem;
+    font-family: var(--font-family);
   }
 
   #root {
