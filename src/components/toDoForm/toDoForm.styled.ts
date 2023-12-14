@@ -5,7 +5,7 @@ export const FormWrapper = styled.div`
   margin: 5rem 0;
   > form {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     column-gap: 1rem;
     > div {
       width: 60rem;

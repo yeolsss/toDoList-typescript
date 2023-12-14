@@ -47,6 +47,7 @@ export const ButtonWrapper = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
+  padding: 0 5rem;
 
   > button:first-child {
     &:hover {

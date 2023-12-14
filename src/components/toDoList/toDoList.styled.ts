@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
 export const ToDoList = styled.ul`
-  max-width: 100rem;
+  max-width: 120rem;
   min-width: 80rem;
   width: 100%;
   font-size: 1.6rem;
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fill, 20rem);
+  grid-template-columns: repeat(auto-fill, 30rem);
   justify-content: center;
 `;
 
