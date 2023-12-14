@@ -14,14 +14,15 @@ export const ToDoCard = styled.ul`
   > span,
   p {
     letter-spacing: 0.05rem;
-    line-height: 2rem;
   }
 
   > span {
     font-size: 2.4rem;
+    line-height: 2.5rem;
   }
   > p {
     font-size: 1.6rem;
+    line-height: 2rem;
   }
 
   &:hover {

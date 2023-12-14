@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { selectorTheme } from './redux/module/theme.slice.ts';
 import { darkTheme, lightTheme } from './shared/styles/theme/theme.ts';
 import CustomModal from './components/customModal';
+import LoadingModal from './components/loadingModal';
 
 function App() {
   const { theme } = useSelector(selectorTheme);
@@ -14,6 +15,7 @@ function App() {
         <GlobalStyles />
         <Home />
         <CustomModal />
+        <LoadingModal />
       </ThemeProvider>
     </>
   );

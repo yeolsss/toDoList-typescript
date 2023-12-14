@@ -13,7 +13,7 @@ export const ModalWrapper = styled.div<{ $IsOpen: boolean }>`
   transition: opacity 0.2s ease-in;
 `;
 
-export const ModalMain = styled.main<{ $IsOpen: boolean }>`
+export const ModalConfirm = styled.main<{ $IsOpen: boolean }>`
   width: 30rem;
   height: 20rem;
   margin: auto;
@@ -25,8 +25,11 @@ export const ModalMain = styled.main<{ $IsOpen: boolean }>`
   align-items: center;
   row-gap: 4rem;
   opacity: ${({ $IsOpen }) => ($IsOpen ? 1 : 0)};
+  padding: 0 2rem;
   > h1 {
     font-size: 2.4rem;
+    letter-spacing: 0.1rem;
+    line-height: 3rem;
   }
 `;
 
