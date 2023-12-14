@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const ToDoCard = styled.ul`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   row-gap: 1.5rem;
   border: 1px solid var(--borderColor);
   padding: 1.5rem;
@@ -17,12 +18,14 @@ export const ToDoCard = styled.ul`
   }
 
   > span {
-    font-size: 2.4rem;
+    font-size: 2rem;
     line-height: 2.5rem;
+    word-break: break-all;
   }
   > p {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     line-height: 2rem;
+    word-break: break-all;
   }
 
   &:hover {
