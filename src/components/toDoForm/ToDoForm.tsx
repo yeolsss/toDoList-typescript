@@ -1,5 +1,5 @@
 import { useQueryClient } from '@tanstack/react-query';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { postToDo } from '../../api/todoAPI.ts';
 import { getDate } from '../../common/util.ts';
 import ToDoButton from '../button';
@@ -28,15 +28,19 @@ const ToDoForm = () => {
   };
   const mutate = useCustomMutation(mutateOptions);
 
+  useEffect(() => {
+    titleRef.current?.focus();
+  }, []);
+
   const handleOnSubmitToDo = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!titleState) {
+    if (!titleState.trim()) {
       await handleOpenModal('제목을 입력해주세요.', 'alert');
       titleRef.current?.focus();
       return;
     }
-    if (!todoState) {
+    if (!todoState.trim()) {
       await handleOpenModal('할 일을 입력해주세요.', 'alert');
       todoRef.current?.focus();
       return;

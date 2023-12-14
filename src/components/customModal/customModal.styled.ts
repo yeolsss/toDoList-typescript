@@ -4,7 +4,7 @@ import { ButtonWrapper } from '../toDo/toDoCard.styled.ts';
 export const ModalWrapper = styled.div<{ $IsOpen: boolean }>`
   width: 100vw;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   backdrop-filter: blur(5px);
   background-color: rgba(0, 0, 0, 0.5);
   opacity: ${({ $IsOpen }) => ($IsOpen ? 1 : 0)};

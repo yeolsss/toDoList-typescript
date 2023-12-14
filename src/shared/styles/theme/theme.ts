@@ -1,8 +1,8 @@
 import { DefaultTheme } from 'styled-components';
 
 export const darkTheme: DefaultTheme = {
-  bgColor: '#282828',
-  cardColor: '#353b48',
+  bgColor: '#171717',
+  cardColor: '#2a2a2a',
   textColor: '#dcdde1',
   borderColor: 'rgba(220, 221, 225, 0.5)', // 0.5 is the opacity
   cancelColor: '#b33939',
@@ -11,7 +11,7 @@ export const darkTheme: DefaultTheme = {
 
 export const lightTheme: DefaultTheme = {
   bgColor: '#dcdde1',
-  cardColor: '#f5f6fa',
+  cardColor: '#171717',
   textColor: '#3d3d3d',
   borderColor: 'rgba(45, 52, 54, 0.5)', // 0.5 is the opacity
   cancelColor: '#ffb8b8',
