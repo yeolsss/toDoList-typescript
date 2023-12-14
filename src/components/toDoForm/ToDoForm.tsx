@@ -1,11 +1,12 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useQueryClient } from '@tanstack/react-query';
 import React from 'react';
 import { postToDo } from '../../api/todoAPI.ts';
 import { getDate } from '../../common/util.ts';
-import useInput from '../../hooks/useInput.tsx';
 import ToDoButton from '../button';
 import ToDoInput from '../input/ToDoInput.tsx';
 import * as St from './toDoForm.styled';
+import { useCustomMutation } from '../../hooks';
+import useInput from '../../hooks/useInput.ts';
 
 const ToDoForm = () => {
   const [titleState, titleHandler, titleResetState] = useInput();
@@ -13,14 +14,15 @@ const ToDoForm = () => {
 
   const queryClient = useQueryClient();
 
-  const { isPending, isError, isSucces, mutate } = useMutation({
+  const mutateOptions = {
     mutationFn: postToDo,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['toDos'] });
       titleResetState();
       todoResetState();
     },
-  });
+  };
+  const mutate = useCustomMutation(mutateOptions);
 
   const handleOnSubmitToDo = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

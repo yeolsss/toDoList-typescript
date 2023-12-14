@@ -186,5 +186,6 @@ export const GlobalStyles = styled.createGlobalStyle`
   #root {
     width: 100vw;
     display: flex;
+    position: relative;
   }
 `;

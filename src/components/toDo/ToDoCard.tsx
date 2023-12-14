@@ -1,37 +1,32 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useQueryClient } from '@tanstack/react-query';
 import { deleteToDo, updateToDo } from '../../api/todoAPI';
 import { EIsDone } from '../../types/types';
 import ToDoButton from '../button';
 import * as St from './toDoCard.styled';
+import { useCustomMutation } from '../../hooks';
+import { useCustomModal } from '../../hooks/useCustomModal.ts';
 
 interface IToDo {
   toDo: TToDo;
 }
 const ToDo = ({ toDo }: IToDo) => {
   const queryClient = useQueryClient();
-  const {
-    isPending: updateIsPending,
-    isError: updateIsError,
-    error: updateError,
-    mutate: updateMutate,
-  } = useMutation({
+  const { handleOpenModal } = useCustomModal();
+
+  const updateMutationOptions = {
     mutationFn: updateToDo,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['toDos'] });
     },
-  });
-
-  const {
-    isPending: deleteIsPending,
-    isError: deleteIsError,
-    error: deleteError,
-    mutate: deleteMutate,
-  } = useMutation({
+  };
+  const deleteMutationOptions = {
     mutationFn: deleteToDo,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['toDos'] });
     },
-  });
+  };
+  const updateMutate = useCustomMutation(updateMutationOptions);
+  const deleteMutate = useCustomMutation(deleteMutationOptions);
 
   // update
   const handleOnClickIsDone = () => {
@@ -43,8 +38,10 @@ const ToDo = ({ toDo }: IToDo) => {
   };
 
   // delete
-  const handleOnClickDelete = () => {
-    deleteMutate(toDo.id!);
+  const handleOnClickDelete = async () => {
+    if (await handleOpenModal('삭제 하시겠습니까?')) {
+      deleteMutate(toDo.id!);
+    }
   };
 
   return (

@@ -24,23 +24,9 @@
     {
       "title": "dfasdfasd",
       "todo": "fasdfawefawef",
-      "isDone": 0,
+      "isDone": 1,
       "createdAt": "2023.12.13 23:35:26",
       "id": 4
-    },
-    {
-      "title": "cvxvzxc",
-      "todo": "xzcvzxcvzxcv",
-      "isDone": 0,
-      "createdAt": "2023.12.13 23:35:30",
-      "id": 5
-    },
-    {
-      "title": "customModal",
-      "todo": "내일 해",
-      "isDone": 0,
-      "createdAt": "2023.12.13 23:37:24",
-      "id": 7
     },
     {
       "title": "ㅁㄴㅇㄹㅁ",
@@ -55,6 +41,34 @@
       "isDone": 0,
       "createdAt": "2023.12.13 23:40:15",
       "id": 9
+    },
+    {
+      "title": "test",
+      "todo": "1234",
+      "isDone": 0,
+      "createdAt": "2023.12.14 11:52:20",
+      "id": 10
+    },
+    {
+      "title": "asdf",
+      "todo": "asdf",
+      "isDone": 0,
+      "createdAt": "2023.12.14 11:52:34",
+      "id": 11
+    },
+    {
+      "title": "asdf",
+      "todo": "asdf",
+      "isDone": 0,
+      "createdAt": "2023.12.14 11:54:53",
+      "id": 13
+    },
+    {
+      "title": "vcvasdf",
+      "todo": "aefawef",
+      "isDone": 0,
+      "createdAt": "2023.12.14 11:56:11",
+      "id": 14
     }
   ]
 }
