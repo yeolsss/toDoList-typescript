@@ -4,10 +4,10 @@ import {
   closeModal,
   selectorModal,
   setResult,
-} from '../../redux/module/modal.slice.ts';
+} from '../../redux/module/modal.slice';
 import React from 'react';
-import CustomModalConfirm from './CustomModalConfirm.tsx';
-import CustomModalAlert from './CustomModalAlert.tsx';
+import CustomModalConfirm from './CustomModalConfirm';
+import CustomModalAlert from './CustomModalAlert';
 
 export enum EConfirm {
   CANCEL,

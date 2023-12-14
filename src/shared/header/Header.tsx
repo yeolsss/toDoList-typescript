@@ -1,7 +1,7 @@
-import * as St from './header.styled.ts';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectorTheme, toggleTheme } from '../../redux/module/theme.slice.ts';
 import { CiDark, CiLight } from 'react-icons/ci';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectorTheme, toggleTheme } from '../../redux/module/theme.slice';
+import * as St from './header.styled';
 
 const Header = () => {
   const { theme } = useSelector(selectorTheme);

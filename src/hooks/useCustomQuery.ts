@@ -1,8 +1,8 @@
 import { useQuery, UseQueryOptions } from '@tanstack/react-query';
 import { useEffect } from 'react';
-import { setLoading } from '../redux/module/loading.slice.ts';
 import { useDispatch } from 'react-redux';
-import { useCustomModal } from './useCustomModal.ts';
+import { setLoading } from '../redux/module/loading.slice';
+import { useCustomModal } from './useCustomModal';
 
 export function useCustomQuery<T, TError extends Error = Error>(
   queryOptions: UseQueryOptions<T, TError>,

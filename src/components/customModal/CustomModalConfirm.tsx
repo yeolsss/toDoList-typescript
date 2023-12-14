@@ -1,13 +1,13 @@
-import * as St from './customModal.styled.ts';
-import ToDoButton from '../button';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   closeModal,
   selectorModal,
   setResult,
-} from '../../redux/module/modal.slice.ts';
-import { EConfirm } from './CustomModal.tsx';
+} from '../../redux/module/modal.slice';
+import ToDoButton from '../button';
+import { EConfirm } from './CustomModal';
+import * as St from './customModal.styled';
 
 export interface IProps {
   handler: (

@@ -4,11 +4,11 @@ import {
   closeModal,
   selectorModal,
   setResult,
-} from '../../redux/module/modal.slice.ts';
+} from '../../redux/module/modal.slice';
 import ToDoButton from '../button';
-import { EConfirm } from './CustomModal.tsx';
-import { IProps } from './CustomModalConfirm.tsx';
-import * as St from './customModal.styled.ts';
+import { EConfirm } from './CustomModal';
+import { IProps } from './CustomModalConfirm';
+import * as St from './customModal.styled';
 
 const CustomModalAlert = ({ handler }: IProps) => {
   const { isOpen, title } = useSelector(selectorModal);

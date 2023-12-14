@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
-import { openModal } from '../redux/module/modal.slice.ts';
-import store from '../redux/storeConfig.ts';
+import { openModal } from '../redux/module/modal.slice';
+import store from '../redux/storeConfig';
 
 export const useCustomModal = () => {
   const dispatch = useDispatch();
