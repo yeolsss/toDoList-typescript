@@ -1,14 +1,14 @@
-import * as St from './customModal.styled.ts';
-import ToDoButton from '../button';
 import React, { useEffect } from 'react';
-import { EConfirm } from './CustomModal.tsx';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   closeModal,
   selectorModal,
   setResult,
 } from '../../redux/module/modal.slice.ts';
+import ToDoButton from '../button';
+import { EConfirm } from './CustomModal.tsx';
 import { IProps } from './CustomModalConfirm.tsx';
+import * as St from './customModal.styled.ts';
 
 const CustomModalAlert = ({ handler }: IProps) => {
   const { isOpen, title } = useSelector(selectorModal);

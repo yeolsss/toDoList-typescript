@@ -2,14 +2,12 @@ import { useQueryClient } from '@tanstack/react-query';
 import React, { useEffect, useRef } from 'react';
 import { postToDo } from '../../api/todoAPI.ts';
 import { getDate } from '../../common/util.ts';
+import { useCustomMutation } from '../../hooks';
+import { useCustomModal } from '../../hooks/useCustomModal.ts';
+import useInput from '../../hooks/useInput.ts';
 import ToDoButton from '../button';
 import ToDoInput from '../input/ToDoInput.tsx';
 import * as St from './toDoForm.styled';
-import { useCustomMutation } from '../../hooks';
-import useInput from '../../hooks/useInput.ts';
-import { useCustomModal } from '../../hooks/useCustomModal.ts';
-import { useSelector } from 'react-redux';
-import { selectorModal } from '../../redux/module/modal.slice.ts';
 
 const ToDoForm = () => {
   const [titleState, titleHandler, titleResetState] = useInput();
@@ -18,7 +16,6 @@ const ToDoForm = () => {
   const todoRef = useRef<HTMLInputElement>(null);
   const { handleOpenModal } = useCustomModal();
   // 모달의 상태를 가져옵니다.
-  const { isOpen } = useSelector(selectorModal);
 
   const queryClient = useQueryClient();
 
@@ -37,22 +34,19 @@ const ToDoForm = () => {
   }, []);
 
   const handleOnSubmitToDo = async (e: React.FormEvent<HTMLFormElement>) => {
-    console.log('안녕하세요');
     // 모달이 열려 있으면 함수를 종료합니다.
     e.preventDefault();
 
-    titleRef.current?.blur();
     todoRef.current?.blur();
+    titleRef.current?.blur();
     if (!titleState.trim()) {
-      if (await handleOpenModal('제목을 입력해주세요.', 'alert')) {
-        titleRef.current?.focus();
-      }
+      await handleOpenModal('제목을 입력해주세요.', 'alert');
+      // titleRef.current?.focus();
       return;
     }
     if (!todoState.trim()) {
-      if (await handleOpenModal('할 일을 입력해주세요.', 'alert')) {
-        todoRef.current?.focus();
-      }
+      await handleOpenModal('할 일을 입력해주세요.', 'alert');
+      // todoRef.current?.focus();
       return;
     }
 
