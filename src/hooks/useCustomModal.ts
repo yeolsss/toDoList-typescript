@@ -5,13 +5,9 @@ import store from '../redux/storeConfig.ts';
 export const useCustomModal = () => {
   const dispatch = useDispatch();
 
-  const handleOpenModalAlert = (title: string) => {
-    dispatch(openModal({ modal: 'alert', title }));
-  };
-
-  const handleOpenModal = (title: string) => {
+  const handleOpenModal = (title: string, modalType: string) => {
     return new Promise((res) => {
-      dispatch(openModal({ modal: 'confirm', title }));
+      dispatch(openModal({ modal: modalType, title }));
 
       const unsubscribe = store.subscribe(() => {
         const result = store.getState().modal.result;
@@ -20,5 +16,5 @@ export const useCustomModal = () => {
       });
     });
   };
-  return { handleOpenModal, handleOpenModalAlert };
+  return { handleOpenModal };
 };

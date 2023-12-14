@@ -46,8 +46,7 @@ export const ToDoCard = styled.ul`
 export const ButtonWrapper = styled.div`
   display: flex;
   width: 100%;
-  justify-content: space-between;
-  padding: 0 5rem;
+  justify-content: flex-end;
 
   > button:first-child {
     &:hover {

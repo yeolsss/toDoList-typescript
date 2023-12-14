@@ -8,7 +8,7 @@ export function useCustomQuery<T, TError extends Error = Error>(
   queryOptions: UseQueryOptions<T, TError>,
 ): T | undefined {
   const dispatch = useDispatch();
-  const { handleOpenModalAlert } = useCustomModal();
+  const { handleOpenModal } = useCustomModal();
   const { isLoading, isError, error, data } = useQuery<T, TError>(queryOptions);
 
   useEffect(() => {
@@ -17,9 +17,11 @@ export function useCustomQuery<T, TError extends Error = Error>(
 
   useEffect(() => {
     if (isError) {
-      handleOpenModalAlert(error?.message);
+      (async () => {
+        await handleOpenModal(error?.message, 'alert');
+      })();
     }
-  }, [isError, error, handleOpenModalAlert]);
+  }, [isError, error, handleOpenModal]);
 
   return data;
 }

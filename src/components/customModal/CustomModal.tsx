@@ -23,9 +23,9 @@ const CustomModal = () => {
     type: EConfirm,
   ) => {
     if (e.currentTarget !== e.target) return;
-    if (type === EConfirm.ALERT) dispatch(closeModal());
 
-    if (type) dispatch(setResult(true));
+    if (type === EConfirm.CONFIRM || type === EConfirm.ALERT)
+      dispatch(setResult(true));
     else dispatch(setResult(false));
     dispatch(closeModal());
   };

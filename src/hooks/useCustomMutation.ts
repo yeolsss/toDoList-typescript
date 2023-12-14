@@ -1,8 +1,8 @@
 import { useMutation, UseMutationOptions } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setLoading } from '../redux/module/loading.slice.ts';
-import { useCustomModal } from './useCustomModal.ts';
+import { setLoading } from '../redux/module/loading.slice';
+import { useCustomModal } from './useCustomModal';
 
 export type TMutationOptions<T> = UseMutationOptions<
   unknown,
@@ -12,7 +12,7 @@ export type TMutationOptions<T> = UseMutationOptions<
 >;
 export const useCustomMutation = <T>(mutationOptions: TMutationOptions<T>) => {
   const dispatch = useDispatch();
-  const { handleOpenModalAlert } = useCustomModal();
+  const { handleOpenModal } = useCustomModal();
   const { isPending, isError, error, mutate } = useMutation<
     unknown,
     Error,
@@ -26,9 +26,11 @@ export const useCustomMutation = <T>(mutationOptions: TMutationOptions<T>) => {
 
   useEffect(() => {
     if (isError) {
-      handleOpenModalAlert(error?.message);
+      (async () => {
+        await handleOpenModal(error?.message, 'alert');
+      })();
     }
-  }, [isError, error, handleOpenModalAlert]);
+  }, [isError, error, handleOpenModal]);
 
   return mutate;
 };

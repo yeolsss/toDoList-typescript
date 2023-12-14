@@ -6,9 +6,16 @@ interface IProps {
   inputValue: string;
   placeholder: string;
   handler: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  inputRef?: React.RefObject<HTMLInputElement>;
 }
 
-const ToDoInput = ({ inputType, inputValue, placeholder, handler }: IProps) => {
+const ToDoInput = ({
+  inputType,
+  inputValue,
+  placeholder,
+  handler,
+  inputRef,
+}: IProps) => {
   return (
     <>
       <St.Input
@@ -16,6 +23,7 @@ const ToDoInput = ({ inputType, inputValue, placeholder, handler }: IProps) => {
         value={inputValue}
         placeholder={placeholder}
         onChange={handler}
+        ref={inputRef}
       />
     </>
   );
