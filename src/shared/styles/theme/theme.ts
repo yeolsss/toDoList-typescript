@@ -11,8 +11,8 @@ export const darkTheme: DefaultTheme = {
 
 export const lightTheme: DefaultTheme = {
   bgColor: '#dcdde1',
-  cardColor: '#171717',
-  textColor: '#3d3d3d',
+  cardColor: '#f5f6fa',
+  textColor: '#171717',
   borderColor: 'rgba(45, 52, 54, 0.5)', // 0.5 is the opacity
   cancelColor: '#ffb8b8',
   doneColor: '#55efc4',

@@ -16,8 +16,8 @@ const CustomModalAlert = ({ handler }: IProps) => {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      e.stopPropagation();
       if (e.key === 'Enter' || e.key === 'Escape') {
+        e.stopPropagation();
         dispatch(setResult(true));
         dispatch(closeModal());
       }
@@ -26,7 +26,7 @@ const CustomModalAlert = ({ handler }: IProps) => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, []);
+  }, [isOpen, dispatch]);
   return (
     <St.ModalConfirm $IsOpen={isOpen}>
       <h1>{title || '알 수 없는 오류가 발생하였습니다.'}</h1>

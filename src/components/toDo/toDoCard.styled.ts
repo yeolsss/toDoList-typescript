@@ -10,7 +10,7 @@ export const ToDoCard = styled.ul`
   border-radius: 0.5rem;
   transition:
     color 0.2s ease-in,
-    border-color 0.2s ease-in;
+    border-color 0.2s ease-in background-color 0.2s ease-in;
 
   > span,
   p {

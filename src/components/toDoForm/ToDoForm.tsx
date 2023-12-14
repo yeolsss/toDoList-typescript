@@ -1,10 +1,12 @@
 import { useQueryClient } from '@tanstack/react-query';
 import React, { useEffect, useRef } from 'react';
+import { useSelector } from 'react-redux';
 import { postToDo } from '../../api/todoAPI.ts';
 import { getDate } from '../../common/util.ts';
 import { useCustomMutation } from '../../hooks';
 import { useCustomModal } from '../../hooks/useCustomModal.ts';
 import useInput from '../../hooks/useInput.ts';
+import { selectorModal } from '../../redux/module/modal.slice.ts';
 import ToDoButton from '../button';
 import ToDoInput from '../input/ToDoInput.tsx';
 import * as St from './toDoForm.styled';
@@ -18,6 +20,7 @@ const ToDoForm = () => {
   // 모달의 상태를 가져옵니다.
 
   const queryClient = useQueryClient();
+  const { isOpen } = useSelector(selectorModal);
 
   const mutateOptions = {
     mutationFn: postToDo,
@@ -37,11 +40,12 @@ const ToDoForm = () => {
     // 모달이 열려 있으면 함수를 종료합니다.
     e.preventDefault();
 
-    todoRef.current?.blur();
     titleRef.current?.blur();
-    /*     if (!titleState.trim()) {
+    todoRef.current?.blur();
+    /* if (!titleState.trim()) {
+      console.log('title 헤레렐렐');
       await handleOpenModal('제목을 입력해주세요.', 'alert');
-      // titleRef.current?.focus();
+      titleRef.current?.focus();
       return;
     } */
     if (!todoState.trim()) {
