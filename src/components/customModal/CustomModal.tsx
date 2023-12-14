@@ -19,9 +19,10 @@ const CustomModal = () => {
   const { isOpen, modal } = useSelector(selectorModal);
   const dispatch = useDispatch();
   const handleOnClick = (
-    e: React.MouseEvent<HTMLDivElement | HTMLButtonElement>,
+    e: React.MouseEvent<HTMLDivElement | HTMLButtonElement | KeyboardEvent>,
     type: EConfirm,
   ) => {
+    e.stopPropagation();
     if (e.currentTarget !== e.target) return;
 
     if (type === EConfirm.CONFIRM || type === EConfirm.ALERT)

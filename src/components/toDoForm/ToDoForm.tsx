@@ -8,6 +8,8 @@ import * as St from './toDoForm.styled';
 import { useCustomMutation } from '../../hooks';
 import useInput from '../../hooks/useInput.ts';
 import { useCustomModal } from '../../hooks/useCustomModal.ts';
+import { useSelector } from 'react-redux';
+import { selectorModal } from '../../redux/module/modal.slice.ts';
 
 const ToDoForm = () => {
   const [titleState, titleHandler, titleResetState] = useInput();
@@ -15,6 +17,8 @@ const ToDoForm = () => {
   const titleRef = useRef<HTMLInputElement>(null);
   const todoRef = useRef<HTMLInputElement>(null);
   const { handleOpenModal } = useCustomModal();
+  // 모달의 상태를 가져옵니다.
+  const { isOpen } = useSelector(selectorModal);
 
   const queryClient = useQueryClient();
 
@@ -33,16 +37,22 @@ const ToDoForm = () => {
   }, []);
 
   const handleOnSubmitToDo = async (e: React.FormEvent<HTMLFormElement>) => {
+    console.log('안녕하세요');
+    // 모달이 열려 있으면 함수를 종료합니다.
     e.preventDefault();
 
+    titleRef.current?.blur();
+    todoRef.current?.blur();
     if (!titleState.trim()) {
-      await handleOpenModal('제목을 입력해주세요.', 'alert');
-      titleRef.current?.focus();
+      if (await handleOpenModal('제목을 입력해주세요.', 'alert')) {
+        titleRef.current?.focus();
+      }
       return;
     }
     if (!todoState.trim()) {
-      await handleOpenModal('할 일을 입력해주세요.', 'alert');
-      todoRef.current?.focus();
+      if (await handleOpenModal('할 일을 입력해주세요.', 'alert')) {
+        todoRef.current?.focus();
+      }
       return;
     }
 

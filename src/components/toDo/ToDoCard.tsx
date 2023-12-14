@@ -5,6 +5,7 @@ import ToDoButton from '../button';
 import * as St from './toDoCard.styled';
 import { useCustomMutation } from '../../hooks';
 import { useCustomModal } from '../../hooks/useCustomModal.ts';
+import { useRef } from 'react';
 
 interface IToDo {
   toDo: TToDo;
@@ -12,6 +13,7 @@ interface IToDo {
 const ToDo = ({ toDo }: IToDo) => {
   const queryClient = useQueryClient();
   const { handleOpenModal } = useCustomModal();
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   const updateMutationOptions = {
     mutationFn: updateToDo,
@@ -39,6 +41,7 @@ const ToDo = ({ toDo }: IToDo) => {
 
   // delete
   const handleOnClickDelete = async () => {
+    buttonRef.current?.blur();
     if (await handleOpenModal('삭제 하시겠습니까?', 'confirm')) {
       deleteMutate(toDo.id!);
     }
@@ -53,6 +56,7 @@ const ToDo = ({ toDo }: IToDo) => {
           text={'삭제'}
           btnType={'button'}
           handler={handleOnClickDelete}
+          buttonRef={buttonRef}
         />
         <ToDoButton
           text={toDo.isDone ? '취소' : '완료'}

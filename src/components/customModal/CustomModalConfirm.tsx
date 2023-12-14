@@ -1,19 +1,38 @@
 import * as St from './customModal.styled.ts';
 import ToDoButton from '../button';
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { selectorModal } from '../../redux/module/modal.slice.ts';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  closeModal,
+  selectorModal,
+  setResult,
+} from '../../redux/module/modal.slice.ts';
 import { EConfirm } from './CustomModal.tsx';
 
 export interface IProps {
   handler: (
-    e: React.MouseEvent<HTMLDivElement | HTMLButtonElement>,
+    e: React.MouseEvent<HTMLDivElement | HTMLButtonElement | KeyboardEvent>,
     type: EConfirm,
   ) => void;
 }
 
 const CustomModalConfirm = ({ handler }: IProps) => {
   const { isOpen, title } = useSelector(selectorModal);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Enter') dispatch(setResult(true));
+      else dispatch(setResult(false));
+
+      dispatch(closeModal());
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   return (
     <St.ModalConfirm $IsOpen={isOpen}>
       <h1>{title}</h1>
