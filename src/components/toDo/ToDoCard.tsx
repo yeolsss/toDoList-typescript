@@ -39,7 +39,7 @@ const ToDo = ({ toDo }: IToDo) => {
 
   // delete
   const handleOnClickDelete = async () => {
-    if (await handleOpenModal('삭제 하시겠습니까?')) {
+    if (await handleOpenModal('삭제 하시겠습니까?', 'confirm')) {
       deleteMutate(toDo.id!);
     }
   };
