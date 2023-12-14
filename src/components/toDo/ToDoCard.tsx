@@ -55,7 +55,7 @@ const ToDo = ({ toDo }: IToDo) => {
           handler={handleOnClickDelete}
         />
         <ToDoButton
-          text={'완료'}
+          text={toDo.isDone ? '취소' : '완료'}
           btnType={'button'}
           handler={handleOnClickIsDone}
         />
