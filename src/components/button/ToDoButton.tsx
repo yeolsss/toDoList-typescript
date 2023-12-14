@@ -1,9 +1,10 @@
 import * as St from './toDoButton.styled';
+import React from 'react';
 
 type ButtonType = 'button' | 'submit' | 'reset';
 
 interface IProps {
-  handler?: () => void;
+  handler?: (() => void) | ((e: React.MouseEvent<HTMLButtonElement>) => void);
   text: string;
   btnType: ButtonType;
 }

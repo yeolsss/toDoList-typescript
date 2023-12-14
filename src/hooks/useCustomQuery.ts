@@ -6,13 +6,9 @@ export function useCustomQuery<T, TError extends Error = Error>(
 ): T | undefined {
   const { isLoading, isError, error, data } = useQuery<T, TError>(queryOptions);
 
-  useEffect(() => {
-    console.log('isLoading', isLoading);
-  }, [isLoading]);
+  useEffect(() => {}, [isLoading]);
 
-  useEffect(() => {
-    console.log('isError', error?.message);
-  }, [isError, error]);
+  useEffect(() => {}, [isError, error]);
 
   return data;
 }

@@ -16,14 +16,9 @@ export const useCustomMutation = <T>(mutationOptions: TMutationOptions<T>) => {
     unknown
   >(mutationOptions);
 
-  useEffect(() => {
-    console.log('isPending', isPending);
-  }, [isPending]);
+  useEffect(() => {}, [isPending]);
 
-  useEffect(() => {
-    console.log('isError', isError);
-    console.log('error', error?.message);
-  }, [isError, error]);
+  useEffect(() => {}, [isError, error]);
 
   return mutate;
 };

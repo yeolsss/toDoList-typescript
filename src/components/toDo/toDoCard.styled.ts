@@ -7,6 +7,9 @@ export const ToDoCard = styled.ul`
   border: 1px solid var(--borderColor);
   padding: 1.5rem;
   border-radius: 0.5rem;
+  transition:
+    color 0.2s ease-in,
+    border-color 0.2s ease-in;
 
   > span,
   p {

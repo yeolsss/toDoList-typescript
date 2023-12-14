@@ -4,6 +4,35 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/javascript">
+      (function() {
+        function getInitialColorMode() {
+          const isClient = typeof window !== 'undefined';
+          if (isClient) {
+            const persistedColorPreference = JSON.parse(window.localStorage.getItem('todo_theme'));
+
+            if (persistedColorPreference) {
+              return persistedColorPreference;
+            }
+
+            const systemPreference = window.matchMedia('(prefers-color-scheme: dark)');
+            if (systemPreference.matches) {
+              return 'darkTheme';
+            }
+            return 'lightTheme';
+          }
+        }
+        const colorMode = getInitialColorMode();
+        document.documentElement.style.setProperty(
+          'background-color',
+          colorMode === 'lightTheme' ? '#dcdde1' : '#2f3640'
+        );
+        document.documentElement.style.setProperty(
+          'color',
+          colorMode === 'lightTheme' ? '#2f3640' : '#dcdde1'
+        );
+      })();
+    </script>
     <title>TS ToDos</title>
   </head>
   <body>

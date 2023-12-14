@@ -1,20 +1,6 @@
 {
   "toDos": [
     {
-      "title": "끝",
-      "todo": "났다.",
-      "isDone": 1,
-      "createdAt": "2023.12.13 20:26:30",
-      "id": 1
-    },
-    {
-      "title": "customModal",
-      "todo": "시작",
-      "isDone": 1,
-      "createdAt": "2023.12.13 20:26:42",
-      "id": 2
-    },
-    {
       "title": "asdf",
       "todo": "asdf",
       "isDone": 1,
@@ -27,13 +13,6 @@
       "isDone": 1,
       "createdAt": "2023.12.13 23:35:26",
       "id": 4
-    },
-    {
-      "title": "ㅁㄴㅇㄹㅁ",
-      "todo": "ㄷㄹㅁㅈㄷㄹㅁ",
-      "isDone": 0,
-      "createdAt": "2023.12.13 23:39:54",
-      "id": 8
     },
     {
       "title": "ㅁㄴㅇㄹㅁㅈ",
@@ -53,13 +32,6 @@
       "title": "asdf",
       "todo": "asdf",
       "isDone": 0,
-      "createdAt": "2023.12.14 11:52:34",
-      "id": 11
-    },
-    {
-      "title": "asdf",
-      "todo": "asdf",
-      "isDone": 0,
       "createdAt": "2023.12.14 11:54:53",
       "id": 13
     },
@@ -69,6 +41,13 @@
       "isDone": 0,
       "createdAt": "2023.12.14 11:56:11",
       "id": 14
+    },
+    {
+      "title": "어머어머.. 포크.. 떠가셈..?",
+      "todo": "포크",
+      "isDone": 0,
+      "createdAt": "2023.12.14 14:31:16",
+      "id": 15
     }
   ]
 }

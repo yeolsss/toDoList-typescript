@@ -167,6 +167,7 @@ export const GlobalStyles = styled.createGlobalStyle`
     font-family: var(--font-family);
     background-color: var(--bgColor);
     transition: background-color 0.2s ease-in;
+    min-height: 100vh;
 
     * {
       color: var(--textColor);
