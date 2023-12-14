@@ -15,7 +15,7 @@ export const ModalWrapper = styled.div<{ $IsOpen: boolean }>`
 
 export const ModalConfirm = styled.main<{ $IsOpen: boolean }>`
   width: 30rem;
-  height: 20rem;
+  height: 15rem;
   margin: auto;
   background-color: var(--cardColor);
   border-radius: 0.5rem;
