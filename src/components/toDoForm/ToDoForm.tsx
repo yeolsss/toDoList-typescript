@@ -39,11 +39,11 @@ const ToDoForm = () => {
 
     todoRef.current?.blur();
     titleRef.current?.blur();
-    if (!titleState.trim()) {
+    /*     if (!titleState.trim()) {
       await handleOpenModal('제목을 입력해주세요.', 'alert');
       // titleRef.current?.focus();
       return;
-    }
+    } */
     if (!todoState.trim()) {
       await handleOpenModal('할 일을 입력해주세요.', 'alert');
       // todoRef.current?.focus();
