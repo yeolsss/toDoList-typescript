@@ -1,5 +1,5 @@
 import { useQueryClient } from '@tanstack/react-query';
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { postToDo } from '../../api/todoAPI';
 import { getDate } from '../../common/util';
 import { useCustomMutation } from '../../hooks';
@@ -33,9 +33,9 @@ const ToDoForm = () => {
     titleRef.current?.focus();
   }, []);
 
-  const handleOnSubmitToDo = async () => {
+  const handleOnSubmitToDo = async (e: React.FormEvent<HTMLFormElement>) => {
     // 모달이 열려 있으면 함수를 종료합니다.
-
+    e.preventDefault();
     titleRef.current?.blur();
     todoRef.current?.blur();
 
@@ -47,7 +47,9 @@ const ToDoForm = () => {
 
     if (!todoState.trim()) {
       await handleOpenModal('할 일을 입력해주세요.', 'alert');
-      todoRef.current?.focus();
+      setTimeout(() => {
+        todoRef.current?.focus();
+      }, 0);
       return;
     }
 
@@ -60,28 +62,15 @@ const ToDoForm = () => {
     mutate(newToDo);
   };
 
-  const HandleOnClickToDo = () => {
-    handleOnSubmitToDo();
-  };
-
-  const HandleOnKeyDownToDo = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    e.stopPropagation();
-    if (e.currentTarget === e.target) {
-      if (e.key === 'Enter') handleOnSubmitToDo();
-    }
-  };
-
   return (
     <St.FormWrapper>
-      {/* <form onSubmit={handleOnSubmitToDo}> */}
-      <form>
+      <form onSubmit={handleOnSubmitToDo}>
         <div>
           <ToDoInput
             inputType={'text'}
             inputValue={titleState}
             placeholder={'제목을 입력해주세요.'}
             onChangeHandler={titleHandler}
-            onKeyDownHandler={HandleOnKeyDownToDo}
             inputRef={titleRef}
           />
           <ToDoInput
@@ -89,17 +78,12 @@ const ToDoForm = () => {
             inputValue={todoState}
             placeholder={'할 일을 입력해주세요.'}
             onChangeHandler={todoHandler}
-            onKeyDownHandler={HandleOnKeyDownToDo}
             inputRef={todoRef}
           />
         </div>
         {/* <ToDoButton text={'등록'} btnType={'submit'} /> */}
 
-        <ToDoButton
-          text={'등록'}
-          btnType={'button'}
-          handler={HandleOnClickToDo}
-        />
+        <ToDoButton text={'등록'} btnType={'submit'} />
       </form>
     </St.FormWrapper>
   );

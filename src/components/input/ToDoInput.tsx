@@ -6,7 +6,6 @@ interface IProps {
   inputValue: string;
   placeholder: string;
   onChangeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onKeyDownHandler: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   inputRef?: React.RefObject<HTMLInputElement>;
 }
 
@@ -15,7 +14,6 @@ const ToDoInput = ({
   inputValue,
   placeholder,
   onChangeHandler,
-  onKeyDownHandler,
   inputRef,
 }: IProps) => {
   return (
@@ -25,7 +23,6 @@ const ToDoInput = ({
         value={inputValue}
         placeholder={placeholder}
         onChange={onChangeHandler}
-        onKeyDown={onKeyDownHandler}
         ref={inputRef}
       />
     </>
