@@ -17,5 +17,5 @@ export const lightTheme: DefaultTheme = {
   borderColor: 'rgba(45, 52, 54, 0.5)', // 0.5 is the opacity
   cancelColor: '#ffb8b8',
   doneColor: '#55efc4',
-  modalBgColor: 'rgba(255, 255, 255, 0.5)',
+  modalBgColor: 'rgba(0, 0, 0, 0.5)',
 };
