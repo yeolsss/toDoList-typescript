@@ -1,13 +1,14 @@
-import * as St from './customModal.styled';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { useCustomDispatch } from '../../hooks/useCustomDispatch';
 import {
   closeModal,
   selectorModal,
   setResult,
 } from '../../redux/module/modal.slice';
-import React from 'react';
-import CustomModalConfirm from './CustomModalConfirm';
 import CustomModalAlert from './CustomModalAlert';
+import CustomModalConfirm from './CustomModalConfirm';
+import * as St from './customModal.styled';
 
 export enum EConfirm {
   CANCEL,
@@ -17,7 +18,7 @@ export enum EConfirm {
 
 const CustomModal = () => {
   const { isOpen, modal } = useSelector(selectorModal);
-  const dispatch = useDispatch();
+  const dispatch = useCustomDispatch();
   const handleOnClick = (
     e: React.MouseEvent<HTMLDivElement | HTMLButtonElement | KeyboardEvent>,
     type: EConfirm,

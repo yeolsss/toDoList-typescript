@@ -158,6 +158,7 @@ export const GlobalStyles = styled.createGlobalStyle`
     --borderColor: ${({ theme }) => theme.borderColor};
     --cancelColor: ${({ theme }) => theme.cancelColor};
     --doneColor: ${({ theme }) => theme.doneColor};
+    --modalBgColor: ${({ theme }) => theme.modalBgColor};
     --font-family: font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
       Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
       sans-serif;

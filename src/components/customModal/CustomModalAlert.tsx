@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useCustomDispatch } from '../../hooks/useCustomDispatch';
 import {
   closeModal,
   selectorModal,
@@ -12,7 +13,7 @@ import * as St from './customModal.styled';
 
 const CustomModalAlert = ({ handler }: IProps) => {
   const { isOpen, title } = useSelector(selectorModal);
-  const dispatch = useDispatch();
+  const dispatch = useCustomDispatch();
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {

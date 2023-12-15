@@ -1,16 +1,16 @@
 import { useSelector } from 'react-redux';
 import { selectorIsLoading } from '../../redux/module/loading.slice';
-import { LoadingSpinner, ModalBackground } from './loadingModal.styled';
+import * as St from './loadingModal.styled';
 
 const LoadingModal = () => {
   const selectIsLoading = useSelector(selectorIsLoading);
   return (
-    <ModalBackground $IsLoading={selectIsLoading}>
-      <LoadingSpinner
+    <St.ModalBackground $IsLoading={selectIsLoading}>
+      <St.LoadingSpinner
         animate={{ rotate: 360 }}
         transition={{ duration: 2, loop: Infinity, ease: 'linear' }}
       />
-    </ModalBackground>
+    </St.ModalBackground>
   );
 };
 

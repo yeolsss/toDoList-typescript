@@ -7,6 +7,7 @@ export const darkTheme: DefaultTheme = {
   borderColor: 'rgba(220, 221, 225, 0.5)', // 0.5 is the opacity
   cancelColor: '#b33939',
   doneColor: '#00b894',
+  modalBgColor: 'rgba(0, 0, 0, 0.5)',
 };
 
 export const lightTheme: DefaultTheme = {
@@ -16,4 +17,5 @@ export const lightTheme: DefaultTheme = {
   borderColor: 'rgba(45, 52, 54, 0.5)', // 0.5 is the opacity
   cancelColor: '#ffb8b8',
   doneColor: '#55efc4',
+  modalBgColor: 'rgba(255, 255, 255, 0.5)',
 };

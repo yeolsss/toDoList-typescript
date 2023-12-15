@@ -14,7 +14,7 @@ export const Input = styled.input`
     border-radius 0.2s ease-in;
 
   &:focus {
-    border-color: var(--borderColor);
-    border-radius: 0.5rem;
+    border-bottom-color: var(--textColor);
+    /* border-radius: 0.5rem; */
   }
 `;

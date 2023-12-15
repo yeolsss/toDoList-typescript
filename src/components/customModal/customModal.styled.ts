@@ -6,7 +6,7 @@ export const ModalWrapper = styled.div<{ $IsOpen: boolean }>`
   height: 100vh;
   position: fixed;
   backdrop-filter: blur(5px);
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--modalBgColor);
   opacity: ${({ $IsOpen }) => ($IsOpen ? 1 : 0)};
   z-index: ${({ $IsOpen }) => ($IsOpen ? 10 : -1)};
   display: flex;

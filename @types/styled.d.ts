@@ -9,5 +9,6 @@ declare module 'styled-components' {
     textColor: string;
     borderColor: string;
     doneColor: string;
+    modalBgColor: string;
   }
 }
