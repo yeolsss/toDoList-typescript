@@ -68,7 +68,7 @@ const ToDoForm = () => {
   const HandleOnKeyDownToDo = (e: React.KeyboardEvent<HTMLInputElement>) => {
     e.stopPropagation();
     if (e.currentTarget === e.target) {
-      handleOnSubmitToDo();
+      if (e.key === 'Enter') handleOnSubmitToDo();
     }
   };
 
