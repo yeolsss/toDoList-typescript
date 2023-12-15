@@ -36,12 +36,10 @@ const ToDoForm = () => {
   const handleOnSubmitToDo = async () => {
     // 모달이 열려 있으면 함수를 종료합니다.
 
-    console.log('handleOnSubmitToDo 들어왔구요');
     titleRef.current?.blur();
     todoRef.current?.blur();
 
     /* if (!titleState.trim()) {
-      console.log('title 헤레렐렐');
       await handleOpenModal('제목을 입력해주세요.', 'alert');
       titleRef.current?.focus();
       return;
@@ -65,6 +63,7 @@ const ToDoForm = () => {
   const HandleOnClickToDo = () => {
     handleOnSubmitToDo();
   };
+
   const HandleOnKeyDownToDo = (e: React.KeyboardEvent<HTMLInputElement>) => {
     e.stopPropagation();
     if (e.currentTarget === e.target) {
