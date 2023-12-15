@@ -1,8 +1,8 @@
 import { useMemo } from 'react';
 import { getToDos } from '../../api/todoAPI';
+import { useCustomQuery } from '../../hooks';
 import ToDo from '../toDo';
 import * as St from './toDoList.styled';
-import { useCustomQuery } from '../../hooks';
 
 function ToDoList() {
   // customHook query
