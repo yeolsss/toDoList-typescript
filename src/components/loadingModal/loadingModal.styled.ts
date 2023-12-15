@@ -1,5 +1,15 @@
 import { motion } from 'framer-motion';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+// 회전 애니메이션 정의
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
 
 // 로딩 스피너 스타일 정의
 // 모달 배경 스타일 정의
@@ -13,6 +23,7 @@ export const ModalBackground = styled.div<{ $IsLoading: boolean }>`
   width: 100%;
   height: 100%;
   background-color: var(--modalBgColor);
+  backdrop-filter: blur(5px);
   opacity: ${({ $IsLoading }) => ($IsLoading ? 1 : 0)};
   z-index: ${({ $IsLoading }) => ($IsLoading ? 100 : -1)};
 `;
@@ -22,4 +33,5 @@ export const LoadingSpinner = styled(motion.div)`
   border-radius: 50%;
   width: 50px;
   height: 50px;
+  animation: ${rotate} 2s linear infinite;
 `;

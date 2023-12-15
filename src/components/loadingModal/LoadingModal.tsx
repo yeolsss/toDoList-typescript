@@ -8,7 +8,7 @@ const LoadingModal = () => {
     <St.ModalBackground $IsLoading={selectIsLoading}>
       <St.LoadingSpinner
         animate={{ rotate: [0, 360] }}
-        transition={{ duration: 2, loop: Infinity, ease: 'linear' }}
+        transition={{ duration: 1, loop: Infinity, ease: 'linear' }}
       />
     </St.ModalBackground>
   );
