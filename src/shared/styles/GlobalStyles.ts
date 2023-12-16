@@ -189,5 +189,6 @@ export const GlobalStyles = styled.createGlobalStyle`
     width: 100vw;
     display: flex;
     position: relative;
+    user-select: none;
   }
 `;
