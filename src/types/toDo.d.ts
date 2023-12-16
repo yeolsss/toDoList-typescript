@@ -1,9 +1,9 @@
-declare enum EIsDone {
+export enum EIsDone {
   UN_DONE,
   DONE,
 }
 
-declare type TToDo = {
+export type TToDo = {
   id?: number;
   title: string;
   todo: string;
@@ -11,6 +11,6 @@ declare type TToDo = {
   createdAt: string;
 };
 
-declare type TToDos = {
+export type TToDos = {
   toDos: TToDo[];
 };

@@ -8,6 +8,7 @@ import useInput from '../../hooks/useInput';
 import ToDoButton from '../button';
 import ToDoInput from '../input/ToDoInput';
 import * as St from './toDoForm.styled';
+import { TToDo } from '../../types/toDo';
 
 const ToDoForm = () => {
   const [titleState, titleHandler, titleResetState] = useInput();

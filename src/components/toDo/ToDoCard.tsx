@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import { deleteToDo, updateToDo } from '../../api/todoAPI';
 import { useCustomMutation } from '../../hooks';
 import { useCustomModal } from '../../hooks/useCustomModal';
+import { EIsDone, TToDo } from '../../types/toDo.d';
 import ToDoButton from '../button';
 import * as St from './toDoCard.styled';
 

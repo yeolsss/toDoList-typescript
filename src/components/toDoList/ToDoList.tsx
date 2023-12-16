@@ -3,6 +3,7 @@ import { getToDos } from '../../api/todoAPI';
 import { useCustomQuery } from '../../hooks';
 import ToDo from '../toDo';
 import * as St from './toDoList.styled';
+import { TToDo } from '../../types/toDo';
 
 function ToDoList() {
   // customHook query
