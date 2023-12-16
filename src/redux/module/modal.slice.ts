@@ -22,7 +22,7 @@ const modalSlice = createSlice({
       state.modal = modal;
       state.title = title;
     },
-    setResult: (state, { payload }) => {
+    setResult: (state, { payload }: { payload: boolean }) => {
       state.result = payload;
     },
     closeModal: (state) => {

@@ -17,12 +17,9 @@ const themeSlice = createSlice({
       localStorage.setItem(THEME_LOCAL_KEY, JSON.stringify(currentTheme));
       state.theme = currentTheme;
     },
-    setTheme: (state, { payload }) => {
-      state.theme = payload;
-    },
   },
 });
 
-export const { toggleTheme, setTheme } = themeSlice.actions;
+export const { toggleTheme } = themeSlice.actions;
 export const selectorTheme = (state: RootState) => state.themeState;
 export default themeSlice.reducer;

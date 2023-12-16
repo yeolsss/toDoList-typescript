@@ -1,5 +1,9 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../storeConfig.ts';
+
+interface IIsLoading {
+  isLoading: boolean;
+}
 
 const initialState = {
   isLoading: false,
@@ -9,8 +13,9 @@ const loadingSlice = createSlice({
   name: 'loading',
   initialState,
   reducers: {
-    setLoading: (state, { payload }) => {
-      state.isLoading = payload;
+    setLoading: (state, action: PayloadAction<IIsLoading>) => {
+      const { isLoading } = action.payload;
+      state.isLoading = isLoading;
     },
   },
 });

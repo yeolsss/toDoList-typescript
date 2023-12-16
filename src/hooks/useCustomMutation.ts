@@ -21,7 +21,7 @@ export const useCustomMutation = <T>(mutationOptions: TMutationOptions<T>) => {
   >(mutationOptions);
 
   useEffect(() => {
-    dispatch(setLoading(isPending));
+    dispatch(setLoading({ isLoading: isPending }));
   }, [isPending, dispatch]);
 
   useEffect(() => {

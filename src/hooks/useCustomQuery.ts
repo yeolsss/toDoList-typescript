@@ -12,7 +12,7 @@ export function useCustomQuery<T, TError extends Error = Error>(
   const { isLoading, isError, error, data } = useQuery<T, TError>(queryOptions);
 
   useEffect(() => {
-    dispatch(setLoading(isLoading));
+    dispatch(setLoading({ isLoading: isLoading }));
   }, [isLoading, dispatch]);
 
   useEffect(() => {
