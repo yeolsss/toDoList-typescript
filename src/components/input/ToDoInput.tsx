@@ -1,12 +1,17 @@
 import React from 'react';
 import * as St from './toDoInput.styled';
+import { IInputParams } from '../../hooks/useInput';
 
 interface IProps {
   inputType: string;
   inputValue: string;
   placeholder: string;
-  onChangeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChangeHandler: ({ e, validDataConfig }: IInputParams) => Promise<void>;
   inputRef?: React.RefObject<HTMLInputElement>;
+  validDataConfig: {
+    maxLength: number;
+    message: string;
+  };
 }
 
 const ToDoInput = ({
@@ -15,6 +20,7 @@ const ToDoInput = ({
   placeholder,
   onChangeHandler,
   inputRef,
+  validDataConfig,
 }: IProps) => {
   return (
     <>
@@ -22,7 +28,9 @@ const ToDoInput = ({
         type={inputType}
         value={inputValue}
         placeholder={placeholder}
-        onChange={onChangeHandler}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          onChangeHandler({ e, validDataConfig })
+        }
         ref={inputRef}
       />
     </>

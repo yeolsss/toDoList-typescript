@@ -5,10 +5,13 @@ import { getDate } from '../../common/util';
 import { useCustomMutation } from '../../hooks';
 import { useCustomModal } from '../../hooks/useCustomModal';
 import useInput from '../../hooks/useInput';
+import { TToDo } from '../../types/toDo';
 import ToDoButton from '../button';
 import ToDoInput from '../input/ToDoInput';
 import * as St from './toDoForm.styled';
-import { TToDo } from '../../types/toDo';
+
+const TITLE_MAX_LENGTH = 13;
+const TODO_MAX_LENGTH = 130;
 
 const ToDoForm = () => {
   const [titleState, titleHandler, titleResetState] = useInput();
@@ -40,13 +43,9 @@ const ToDoForm = () => {
     titleRef.current?.blur();
     todoRef.current?.blur();
 
-    /* if (!titleState.trim()) {
-      await handleOpenModal('제목을 입력해주세요.', 'alert');
-      titleRef.current?.focus();
-      return;
-    } */
+    const todoValid = todoState.trim();
 
-    if (!todoState.trim()) {
+    if (!todoValid) {
       await handleOpenModal('할 일을 입력해주세요.', 'alert');
       setTimeout(() => {
         todoRef.current?.focus();
@@ -73,6 +72,10 @@ const ToDoForm = () => {
             placeholder={'제목을 입력해주세요.'}
             onChangeHandler={titleHandler}
             inputRef={titleRef}
+            validDataConfig={{
+              maxLength: TITLE_MAX_LENGTH,
+              message: `제목은 ${TITLE_MAX_LENGTH}자 이하로 입력해 주세요.`,
+            }}
           />
           <ToDoInput
             inputType={'text'}
@@ -80,6 +83,10 @@ const ToDoForm = () => {
             placeholder={'할 일을 입력해주세요.'}
             onChangeHandler={todoHandler}
             inputRef={todoRef}
+            validDataConfig={{
+              maxLength: TODO_MAX_LENGTH,
+              message: `제목은 ${TODO_MAX_LENGTH}자 이하로 입력해 주세요.`,
+            }}
           />
         </div>
         {/* <ToDoButton text={'등록'} btnType={'submit'} /> */}
