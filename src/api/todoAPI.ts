@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { TToDo } from '../types/toDo';
 
 interface IUpdatePrams {
   id: number;
