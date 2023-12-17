@@ -19,7 +19,6 @@ const ToDoForm = () => {
   const titleRef = useRef<HTMLInputElement>(null);
   const todoRef = useRef<HTMLInputElement>(null);
   const { handleOpenModal } = useCustomModal();
-  // 모달의 상태를 가져옵니다.
 
   const queryClient = useQueryClient();
 
@@ -38,7 +37,6 @@ const ToDoForm = () => {
   }, []);
 
   const handleOnSubmitToDo = async (e: React.FormEvent<HTMLFormElement>) => {
-    // 모달이 열려 있으면 함수를 종료합니다.
     e.preventDefault();
     titleRef.current?.blur();
     todoRef.current?.blur();
@@ -89,7 +87,6 @@ const ToDoForm = () => {
             }}
           />
         </div>
-        {/* <ToDoButton text={'등록'} btnType={'submit'} /> */}
 
         <ToDoButton text={'등록'} btnType={'submit'} />
       </form>

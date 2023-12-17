@@ -7,7 +7,7 @@ interface IProps {
   inputValue: string;
   placeholder: string;
   onChangeHandler: ({ e, validDataConfig }: IInputParams) => Promise<void>;
-  inputRef?: React.RefObject<HTMLInputElement>;
+  inputRef: React.RefObject<HTMLInputElement>;
   validDataConfig: {
     maxLength: number;
     message: string;

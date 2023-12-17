@@ -13,17 +13,20 @@ export const getToDos = async () => {
   return response.data;
 };
 
-export const postToDo = async (toDo: TToDo) => {
+export const postToDo = async (toDo: TToDo): Promise<unknown> => {
   return await axios.post(`${import.meta.env.VITE_BASE_URL}/toDos`, toDo);
 };
 
-export const updateToDo = async ({ id, toDo }: IUpdatePrams) => {
+export const updateToDo = async ({
+  id,
+  toDo,
+}: IUpdatePrams): Promise<unknown> => {
   return await axios.patch(
     `${import.meta.env.VITE_BASE_URL}/toDos/${id}`,
     toDo,
   );
 };
 
-export const deleteToDo = async (id: number) => {
+export const deleteToDo = async (id: number): Promise<unknown> => {
   return await axios.delete(`${import.meta.env.VITE_BASE_URL}/toDos/${id}`);
 };
