@@ -7,6 +7,7 @@ export interface IInputParams {
     maxLength: number;
     message: string;
   };
+  inputRef?: React.RefObject<HTMLInputElement>;
 }
 
 const useInput = (): [
@@ -18,31 +19,27 @@ const useInput = (): [
 
   const { handleOpenModal } = useCustomModal();
 
-  async function truncateText(
-    text: string,
-    maxLength: number,
-    message: string,
-  ): Promise<string> {
-    if (text.length > maxLength) {
-      await handleOpenModal(message, 'alert');
-      return text.substring(0, maxLength);
-    }
-    return text;
-  }
+  const handler = async ({ e, validDataConfig, inputRef }: IInputParams) => {
+    let text = e.target.value;
+    const { maxLength, message } = validDataConfig;
 
-  const handler = async ({ e, validDataConfig }: IInputParams) => {
-    setState(
-      await truncateText(
-        e.target.value,
-        validDataConfig.maxLength,
-        validDataConfig.message,
-      ),
-    );
+    if (text.length > maxLength) {
+      inputRef?.current?.blur();
+      await handleOpenModal(message, 'alert');
+      setTimeout(() => {
+        text = text.slice(0, maxLength);
+        inputRef?.current?.focus();
+        setState(text);
+        return;
+      }, 0);
+    }
+    setState(text);
   };
 
   const resetState = () => {
     setState('');
   };
+
   return [state, handler, resetState];
 };
 

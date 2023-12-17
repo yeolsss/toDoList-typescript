@@ -1,6 +1,6 @@
 import React from 'react';
-import * as St from './toDoInput.styled';
 import { IInputParams } from '../../hooks/useInput';
+import * as St from './toDoInput.styled';
 
 interface IProps {
   inputType: string;
@@ -29,7 +29,7 @@ const ToDoInput = ({
         value={inputValue}
         placeholder={placeholder}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          onChangeHandler({ e, validDataConfig })
+          onChangeHandler({ e, validDataConfig, inputRef })
         }
         ref={inputRef}
       />

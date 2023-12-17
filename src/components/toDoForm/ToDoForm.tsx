@@ -11,7 +11,7 @@ import ToDoInput from '../input/ToDoInput';
 import * as St from './toDoForm.styled';
 
 const TITLE_MAX_LENGTH = 13;
-const TODO_MAX_LENGTH = 130;
+const TODO_MAX_LENGTH = 100;
 
 const ToDoForm = () => {
   const [titleState, titleHandler, titleResetState] = useInput();
