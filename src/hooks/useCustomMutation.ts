@@ -10,6 +10,7 @@ export type TMutationOptions<T> = UseMutationOptions<
   T,
   unknown
 >;
+
 export const useCustomMutation = <T>(mutationOptions: TMutationOptions<T>) => {
   const dispatch = useCustomDispatch();
   const { handleOpenModal } = useCustomModal();

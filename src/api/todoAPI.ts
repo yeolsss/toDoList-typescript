@@ -1,11 +1,6 @@
 import axios from 'axios';
 import { TToDo } from '../types/toDo';
 
-interface IUpdatePrams {
-  id: number;
-  toDo: TToDo;
-}
-
 export const getToDos = async () => {
   const response = await axios.get<TToDo[]>(
     `${import.meta.env.VITE_BASE_URL}/toDos?_sort=createdAt&_order=desc`,
@@ -17,12 +12,9 @@ export const postToDo = async (toDo: TToDo): Promise<unknown> => {
   return await axios.post(`${import.meta.env.VITE_BASE_URL}/toDos`, toDo);
 };
 
-export const updateToDo = async ({
-  id,
-  toDo,
-}: IUpdatePrams): Promise<unknown> => {
+export const updateToDo = async (toDo: TToDo): Promise<unknown> => {
   return await axios.patch(
-    `${import.meta.env.VITE_BASE_URL}/toDos/${id}`,
+    `${import.meta.env.VITE_BASE_URL}/toDos/${toDo.id}`,
     toDo,
   );
 };

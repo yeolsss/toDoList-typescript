@@ -36,7 +36,7 @@ const ToDo = ({ toDo }: IToDo) => {
       ...toDo,
       isDone: toDo.isDone ? EIsDone.UN_DONE : EIsDone.DONE,
     };
-    updateMutate({ id: toDo.id!, toDo: updatedToDo });
+    updateMutate(updatedToDo);
   };
 
   // delete
