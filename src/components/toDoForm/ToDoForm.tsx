@@ -83,7 +83,7 @@ const ToDoForm = () => {
             inputRef={todoRef}
             validDataConfig={{
               maxLength: TODO_MAX_LENGTH,
-              message: `제목은 ${TODO_MAX_LENGTH}자 이하로 입력해 주세요.`,
+              message: `할 일은 ${TODO_MAX_LENGTH}자 이하로 입력해 주세요.`,
             }}
           />
         </div>
