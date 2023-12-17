@@ -19,7 +19,14 @@
   - modal이 open 되면 키보드 이벤트를 사용하여 esc = 닫기 또는 취소, enter 확인 또는 닫기
   - isLoading 또는 isPending이 true일 때 Loading modal 출력
 - vercel 배포 및 glitch json-server 배포 및 연결
+- **_유저 피드백 충실히 반영_**
 
 ## 시연
 
+### 기능 시연
+
 ![Alt text](<화면 기록 2023-12-17 09.51.49.gif>)
+
+### theme 시연 (theme 버튼 기능 및 새로고침)
+
+![Alt text](<화면 기록 2023-12-17 10.03.34.gif>)
