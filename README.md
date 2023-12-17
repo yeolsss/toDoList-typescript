@@ -1,30 +1,25 @@
-# React + TypeScript + Vite
+# Typescript ToDo List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### [배포사이트](https://to-do-list-typescript-coral.vercel.app/)
 
-Currently, two official plugins are available:
+## ver. Level5
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 이번 과제는 1-5 level까지 있었지만 level5에 집중해서 구현 해봤습니다.
 
-## Expanding the ESLint configuration
+## 구현한 기능
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Typescript 사용
+- Toggle Theme button
+  - 새로고침 해도 번쩍거리지 않고 유지되는 theme 구현
+- 첫 랜더링 시 title input에 focus
+- form data입력시 적절한 length 까지만 입력 가능
+  - 기준 length가 넘어가면 자동으로 length까지 자르고 custom Alert 표시
+- createdAt을 기준으로 DESC 정렬
+- CustomModal 구현
+  - modal이 open 되면 키보드 이벤트를 사용하여 esc = 닫기 또는 취소, enter 확인 또는 닫기
+  - isLoading 또는 isPending이 true일 때 Loading modal 출력
+- vercel 배포 및 glitch json-server 배포 및 연결
 
-- Configure the top-level `parserOptions` property like this:
+## 시연
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+![Alt text](<화면 기록 2023-12-17 09.51.49.gif>)
