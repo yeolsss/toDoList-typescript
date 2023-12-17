@@ -9,16 +9,24 @@ export const getToDos = async () => {
 };
 
 export const postToDo = async (toDo: TToDo): Promise<unknown> => {
-  return await axios.post(`${import.meta.env.VITE_BASE_URL}/toDos`, toDo);
+  const response = await axios.post(
+    `${import.meta.env.VITE_BASE_URL}/toDos`,
+    toDo,
+  );
+  return response.data;
 };
 
 export const updateToDo = async (toDo: TToDo): Promise<unknown> => {
-  return await axios.patch(
+  const response = await axios.patch(
     `${import.meta.env.VITE_BASE_URL}/toDos/${toDo.id}`,
     toDo,
   );
+  return response;
 };
 
 export const deleteToDo = async (id: number): Promise<unknown> => {
-  return await axios.delete(`${import.meta.env.VITE_BASE_URL}/toDos/${id}`);
+  const response = await axios.delete(
+    `${import.meta.env.VITE_BASE_URL}/toDos/${id}`,
+  );
+  return response.data;
 };
